@@ -25,7 +25,7 @@ module OmniAuth
       end
 
       def request_phase
-        redirect client.auth_code.authorize_url({:redirect_uri => nil}.merge(options.authorize_params))
+        redirect 'https://www.fitbit.com/oauth2/authorize?client_id=227N6X&redirect_uri=http%3A%2F%2Fwww.youcansavetheshire.com%2Fusers%2Fauth%2Ffitbit%2Fcallback&response_type=code&scope=activity+profile'
       end
 
       def query_string
