@@ -24,6 +24,10 @@ module OmniAuth
         "Basic " + Base64.strict_encode64("#{options[:client_id]}:#{options[:client_secret]}")
       end
 
+      def request_phase
+        redirect client.auth_code.authorize_url({:redirect_uri => 'http://google.com'}.merge(options.authorize_params))
+      end
+
       def query_string
         # Using state and code params in the callback_url causes a mismatch with
         # the value set in the fitbit application configuration, so we're skipping them
