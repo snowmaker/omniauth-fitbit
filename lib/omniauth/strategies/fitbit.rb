@@ -25,7 +25,7 @@ module OmniAuth
       end
 
       def request_phase
-        redirect client.auth_code.authorize_url({:redirect_uri => 'http://google.com'}.merge(options.authorize_params))
+        redirect client.auth_code.authorize_url({:redirect_uri => nil}.merge(options.authorize_params))
       end
 
       def query_string
