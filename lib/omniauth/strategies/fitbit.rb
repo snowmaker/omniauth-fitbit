@@ -26,7 +26,7 @@ module OmniAuth
 
       def request_phase
         # redirect 'https://www.fitbit.com/oauth2/authorize?client_id=227N6X&response_type=code&scope=activity+profile'
-        redirect client.auth_code.authorize_url({:redirect_uri => nil}.merge(options.authorize_options)).gsub('redirect_uri=', '')
+        redirect client.auth_code.authorize_url({:redirect_uri => nil}.merge({:scope => 'activity profile', :response_type => 'code'})).gsub('redirect_uri=', '')
       end
 
       def query_string
