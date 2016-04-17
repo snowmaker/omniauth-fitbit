@@ -16,7 +16,9 @@ module OmniAuth
       option :authorize_options, %i(scope response_type)
 
       def build_access_token
+        puts "Fitbit#build_access_token"
         options.token_params.merge!(:headers => {'Authorization' => basic_auth_header })
+        puts "Options: #{options.inspect}"
         super
       end
 
